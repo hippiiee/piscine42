@@ -6,7 +6,7 @@
 /*   By: hquere <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 20:45:38 by hquere            #+#    #+#             */
-/*   Updated: 2018/07/12 20:47:16 by hquere           ###   ########.fr       */
+/*   Updated: 2018/07/19 11:03:55 by hquere           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ int		ft_str_is_numeric(char *str)
 		return (1);
 	while (str[i] != '\0')
 	{
-		if (str[i] <= 47 && (str[i] >= 58)
-		{
+		if (str[i] >= 48 && (str[i] <= 57))
+			i++;
+		else
 			return (0);
-		}
-		i++;
 	}
 	return (1);
 }

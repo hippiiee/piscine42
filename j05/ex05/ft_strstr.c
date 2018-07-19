@@ -6,7 +6,7 @@
 /*   By: hquere <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 17:22:51 by hquere            #+#    #+#             */
-/*   Updated: 2018/07/12 14:22:06 by hquere           ###   ########.fr       */
+/*   Updated: 2018/07/18 10:50:45 by hquere           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@ char	*ft_strstr(char *str, char *to_find)
 	j = 0;
 	if (to_find[j] == '\0')
 		return (str);
-	while (1)
+	while (str[i] != '\0')
 	{
-		while (str[i] != '\0' && str[i++] == to_find[j++])
-			;
-		if (to_find[j] == '\0')
-			return (&str[i - j]);
-		if (str[i] == '\0')
-			return (0);
+		j = 0;
+		while (to_find[j] == str[i + j])
+		{
+			if (to_find[j + 1] == '\0')
+				return (str + i);
+			j++;
+		}
+		i++;
 	}
+	return (0);
 }

@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hquere <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/09 10:35:42 by hquere            #+#    #+#             */
-/*   Updated: 2018/07/19 13:33:31 by hquere           ###   ########.fr       */
+/*   Created: 2018/07/17 20:44:05 by hquere            #+#    #+#             */
+/*   Updated: 2018/07/17 20:44:18 by hquere           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_putnbr(int nb)
+int		ft_str_is_printable(char *str)
 {
-	long number;
+	int i;
 
-	number = nb;
-	if (number < 0)
+	i = 0;
+	if (str[i] == '\0')
+		return (1);
+	while (str[i] != '\0')
 	{
-		number = number * (-1);
-		ft_putchar('-');
+		if (str[i] <= 31 || str[i] == 127)
+		{
+			return (0);
+		}
+		i++;
 	}
-	if (number >= 10)
-	{
-		ft_putnbr(nb = number / 10);
-		ft_putchar(number % 10 + 48);
-	}
-	else
-		ft_putchar(number + 48);
+	return (1);
 }
